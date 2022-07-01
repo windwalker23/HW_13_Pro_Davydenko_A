@@ -32,7 +32,7 @@ workDays.map(
     }
 )
 
-tasksTable = tasks.map(
+let tasksTable = tasks.map(
     function(item) {
         return (`<tr>
             <td>Task name: ${item[0]}</td>
