@@ -9,49 +9,44 @@ let tuesday = [
   ['A whole lot of nothing',240] 
 ];
 
-let workDays = monday.concat(tuesday);
-let tasks = []
-workDays.map(
+let workDays = monday.concat(tuesday)
+.map(
     function(task, index) {
-        return task[1] / 60;
+        task[1] /= 60;
+        return task;
     }
 )
 .filter(
-    function(time, index) {
-        if(time > 2) {
-            tasks.push(workDays[index]);
-            return time;
-        }
+    function(task) {
+        return task[1] > 2;
     }
 )
-.forEach(
-    function(time, index) {
-        tasks[index][1] = `${time} hours`;
-        let pay = time * amount;
-        tasks[index].push(`${pay}$`);
+.map(
+    function(task) {
+        let pay = task[1] * amount;
+        task.push(pay);
+        return task;
     }
-)
-
-let tasksTable = tasks.map(
+) 
+.map(
     function(item) {
         return (`<tr>
             <td>Task name: ${item[0]}</td>
-            <td>Taks duration: ${item[1]}</td>
-            <td>Task amount: ${item[2]}</td>
+            <td>Taks duration: ${item[1]} hours</td>
+            <td>Task amount: ${item[2]}$</td>
         </tr>`)
     }
 )
 .join("")
-document.write(`<table width="700">${tasksTable}</table>`)
+document.write(`<table width="700">${workDays}</table>`)
 
 console.log(monday);
 console.log(tuesday);
 console.log(workDays);
-console.log(tasks);
 
-let a = [1, 2, 3, 5];
+let a = [1, 2, 3, 5, [777,888]];
 let b = [`a`, `b`];
-b.push(a);
-b[2] = 11;
+b.push(a[4]);
+b[2][0] = 11;
 console.log(a);
 console.log(b);
