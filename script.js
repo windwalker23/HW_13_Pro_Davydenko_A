@@ -27,7 +27,7 @@ workDays.map(
 .forEach(
     function(time, index) {
         tasks[index][1] = `${time} hours`;
-        let pay = time * 100;
+        let pay = time * amount;
         tasks[index].push(`${pay}$`);
     }
 )
@@ -43,3 +43,15 @@ let tasksTable = tasks.map(
 )
 .join("")
 document.write(`<table width="700">${tasksTable}</table>`)
+
+console.log(monday);
+console.log(tuesday);
+console.log(workDays);
+console.log(tasks);
+
+let a = [1, 2, 3, 5];
+let b = [`a`, `b`];
+b.push(a);
+b[2] = 11;
+console.log(a);
+console.log(b);
