@@ -39,14 +39,3 @@ let workDays = monday.concat(tuesday)
 )
 .join("")
 document.write(`<table width="700">${workDays}</table>`)
-
-console.log(monday);
-console.log(tuesday);
-console.log(workDays);
-
-let a = [1, 2, 3, 5, [777,888]];
-let b = [`a`, `b`];
-b.push(a[4]);
-b[2][0] = 11;
-console.log(a);
-console.log(b);
